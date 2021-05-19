@@ -77,7 +77,7 @@ module ActiveRecord
         def synonyms
           result = select_all(<<~SQL.squish, "SCHEMA")
             SELECT synonym_name, table_owner, table_name
-            FROM all_synonyms where owner = SYS_CONTEXT('userenv', 'current_schema')
+            FROM dba_synonyms where owner = SYS_CONTEXT('userenv', 'current_schema')
           SQL
 
           result.collect do |row|

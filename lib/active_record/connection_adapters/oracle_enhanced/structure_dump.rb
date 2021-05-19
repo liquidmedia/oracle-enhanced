@@ -254,7 +254,7 @@ module ActiveRecord #:nodoc:
           structure = []
           synonyms = select_all(<<~SQL.squish, "SCHEMA")
             SELECT /*+ OPTIMIZER_FEATURES_ENABLE('11.2.0.2') */ owner, synonym_name, table_name, table_owner
-            FROM all_synonyms
+            FROM dba_synonyms
             WHERE owner = SYS_CONTEXT('userenv', 'current_schema')
           SQL
           synonyms.each do |synonym|
