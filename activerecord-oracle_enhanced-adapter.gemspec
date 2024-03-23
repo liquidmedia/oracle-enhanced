@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-# not requiring rake because it seems to cause problems at deploy-time # PD 2024-03-23
-# require "rake"
+require "rake"
 
 version = File.read(File.expand_path("../VERSION", __FILE__)).strip
 
